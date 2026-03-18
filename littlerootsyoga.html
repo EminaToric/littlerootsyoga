@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Roots Yoga | Yoga for Child Development</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F2E8;
+    --linen: #EDE6D6;
+    --brown: #6B3F1F;
+    --brown-light: #8B5E3C;
+    --sage: #7A8C6E;
+    --sage-light: #A8B89A;
+    --dusty-blue: #8FAAB3;
+    --gold: #C9973A;
+    --terracotta: #C4714A;
+    --blush: #E8C4B0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    background: #F7F2E8;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F7F2E8;
+    color: var(--brown);
+    overflow-x: hidden;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(237, 224, 210, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(196, 113, 74, 0.15);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--brown);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .nav-brand span {
+    display: block;
+    font-size: 0.65rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 84px;
+    background: var(--cream);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 80px 80px;
+    position: relative;
+    background: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: #6B3F1F;
+    margin-bottom: 28px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--brown-light);
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--terracotta);
+    color: var(--cream);
+    padding: 16px 36px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    width: fit-content;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  .hero-cta svg {
+    transition: transform 0.2s;
+  }
+
+  .hero-cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  .hero-credentials {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+  }
+
+  .cred-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cred-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+
+  .cred-label {
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  .cred-divider {
+    width: 1px;
+    background: var(--linen);
+    align-self: stretch;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--linen);
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.85);
+    mix-blend-mode: multiply;
+  }
+
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201, 151, 58, 0.15) 0%, rgba(122, 140, 110, 0.1) 100%);
+  }
+
+  .hero-tag {
+    position: absolute;
+    bottom: 48px;
+    left: -24px;
+    background: var(--cream);
+    padding: 20px 28px;
+    box-shadow: 0 8px 40px rgba(107,63,31,0.12);
+    max-width: 260px;
+  }
+
+  .hero-tag-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .hero-tag-attr {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* ---- BOTANICAL DIVIDER ---- */
+  .botanical-divider {
+    text-align: center;
+    padding: 60px 0 20px;
+    opacity: 0.35;
+  }
+
+  /* ---- ABOUT ---- */
+  .about {
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+    border-top: 1px solid rgba(196,113,74,0.15);
+    background: var(--cream);
+  }
+
+  .about-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    padding-top: 8px;
+  }
+
+  .about-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--brown);
+    margin-bottom: 28px;
+  }
+
+  .about-content h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--brown-light);
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  .credential-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .pill {
+    border: 1px solid rgba(107,63,31,0.25);
+    padding: 8px 18px;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown);
+  }
+
+  /* ---- OFFERINGS ---- */
+  .offerings {
+    padding: 100px 80px;
+    background: var(--linen);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    white-space: nowrap;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .offering-card {
+    background: var(--cream);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .offering-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .offering-icon {
+    margin-bottom: 28px;
+    opacity: 0.8;
+  }
+
+  .offering-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .offering-card p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--brown-light);
+  }
+
+  .offering-card .coming-soon {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 2px;
+  }
+
+  /* ---- BOOK ---- */
+  .book-section {
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background: var(--cream);
+  }
+
+  .book-cover {
+    position: relative;
+  }
+
+  .book-cover img {
+    width: 75%;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 20px 20px 60px rgba(107,63,31,0.2);
+    transform: rotate(-2deg);
+    transition: transform 0.4s;
+  }
+
+  .book-cover:hover img {
+    transform: rotate(0deg);
+  }
+
+  .book-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--brown);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .book-content h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .book-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--brown-light);
+    margin-bottom: 16px;
+  }
+
+  .book-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--linen);
+    padding: 10px 20px;
+    margin-top: 24px;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* ---- EMAIL CAPTURE ---- */
+  .email-section {
+    background: #E8C4A8;
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .email-section::before {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(107,63,31,0.1);
+  }
+
+  .email-section::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(107,63,31,0.07);
+  }
+
+  .email-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .email-left h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .email-left p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--brown-light);
+  }
+
+  .email-right {
+    position: relative;
+    z-index: 1;
+  }
+
+  .freebie-label {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+  }
+
+  .freebie-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .freebie-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--brown-light);
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  .email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .email-form input {
+    background: rgba(247,242,232,0.7);
+    border: 1px solid rgba(107,63,31,0.2);
+    padding: 16px 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--brown);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .email-form input::placeholder {
+    color: rgba(107,63,31,0.4);
+  }
+
+  .email-form input:focus {
+    border-color: rgba(107,63,31,0.5);
+    background: rgba(247,242,232,0.9);
+  }
+
+  .email-form button {
+    background: var(--terracotta);
+    color: var(--cream);
+    border: none;
+    padding: 16px 36px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    width: 100%;
+  }
+
+  .email-form button:hover {
+    background: var(--sage);
+    transform: translateY(-1px);
+  }
+
+  .email-privacy {
+    font-size: 0.68rem;
+    font-weight: 300;
+    color: rgba(107,63,31,0.45);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    padding: 60px 80px;
+    border-top: 1px solid rgba(196,113,74,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--linen);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--brown);
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--sage);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+
+  .footer-links a:hover { opacity: 1; }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero-title { animation: fadeUp 0.7s ease 0.1s both; }
+  .hero-sub { animation: fadeUp 0.7s ease 0.2s both; }
+  .hero-cta { animation: fadeUp 0.7s ease 0.3s both; }
+  .hero-credentials { animation: fadeUp 0.7s ease 0.4s both; }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 32px;
+    color: var(--brown);
+  }
+
+  .success-msg h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 12px;
+    color: var(--brown);
+  }
+
+  .success-msg p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--brown-light);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Botanical logo: stem + leaves + roots -->
+      <!-- Main stem -->
+      <line x1="22" y1="38" x2="22" y2="12" stroke="#6B3F1F" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- Roots -->
+      <path d="M22 38 Q16 40 12 38" stroke="#6B3F1F" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path d="M22 38 Q28 41 32 38" stroke="#6B3F1F" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path d="M22 38 Q20 43 17 43" stroke="#6B3F1F" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+      <path d="M22 38 Q24 43 27 43" stroke="#6B3F1F" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+      <!-- Left leaf -->
+      <path d="M22 26 Q14 22 13 14 Q19 16 22 26Z" fill="#7A8C6E" opacity="0.85"/>
+      <!-- Right leaf -->
+      <path d="M22 22 Q30 18 31 10 Q25 12 22 22Z" fill="#A8B89A" opacity="0.85"/>
+      <!-- Small top leaf -->
+      <path d="M22 14 Q18 9 20 5 Q24 8 22 14Z" fill="#7A8C6E" opacity="0.6"/>
+      <!-- Flower/bud at top -->
+      <circle cx="22" cy="10" r="2.5" fill="#C4714A" opacity="0.75"/>
+      <circle cx="22" cy="10" r="1.2" fill="#C9973A"/>
+    </svg>
+    <div class="nav-brand">
+      Little Roots Yoga
+      <span>Yoga for Child Development</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#offerings">Offerings</a></li>
+    <li><a href="#book">The Book</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Yoga · Child Development · Mindfulness</div>
+    <h1 class="hero-title">
+      Where little ones<br>
+      <em>grow roots</em><br>
+      and bloom
+    </h1>
+    <p class="hero-sub">
+      Children's yoga grounded in real developmental science, for ages 1 to 12. Created by someone who has studied child development for years and has practiced yoga just as long.
+    </p>
+    <a href="#connect" class="hero-cta">
+      Get the free yoga guide
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <div class="hero-credentials">
+      <div class="cred-item">
+        <span class="cred-number">MS</span>
+        <span class="cred-label">Child Development</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <span class="cred-number">RYT</span>
+        <span class="cred-label">Certified Instructor</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <span class="cred-number">10+</span>
+        <span class="cred-label">Years with children</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="IMG_8782.jpeg" alt="Emina teaching children's yoga" class="hero-img">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-tag">
+      <p class="hero-tag-quote">"Children learn more from what you are than what you teach."</p>
+      <p class="hero-tag-attr">W.E.B. Du Bois</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-label">Our Story</div>
+  <div class="about-content">
+    <h2>Yoga rooted in <em>real</em> child development</h2>
+    <p>
+      I'm Emina, a child development specialist, certified yoga instructor, 
+      and mother. Growing up as a Bosnian refugee, I learned early what 
+      resilience really means and how movement and stillness can be 
+      anchors when the world feels uncertain.
+    </p>
+    <p>
+      Today I bring that understanding into every class, every session, 
+      every page of my book. Little Roots Yoga is not just poses and 
+      breathing games. It is grounded in developmental science, designed 
+      to support the whole child at each stage of growth.
+    </p>
+    <div class="credential-pills">
+      <span class="pill">MS Child & Human Development</span>
+      <span class="pill">MS Computer Science</span>
+      <span class="pill">RYT Certified</span>
+      <span class="pill">Children's Yoga Specialist</span>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section class="offerings" id="offerings">
+  <div class="section-header">
+    <span class="section-label">What I offer</span>
+    <h2 class="section-title">Ways to <em>grow together</em></h2>
+  </div>
+  <div class="offerings-grid">
+
+    <div class="offering-card">
+      <div class="offering-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 8 Q12 14 12 22 Q12 30 20 34 Q28 30 28 22 Q28 14 20 8Z" stroke="#7A8C6E" stroke-width="1.2" fill="rgba(122,140,110,0.1)"/>
+          <path d="M20 8 L20 34" stroke="#6B3F1F" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <circle cx="20" cy="20" r="2" fill="#C4714A"/>
+        </svg>
+      </div>
+      <h3>Children's Yoga Classes</h3>
+      <p>Playful, imaginative yoga sessions for ages 1 to 12. Each class weaves movement, storytelling, breathwork, and mindfulness into an experience children carry with them.</p>
+      <span class="coming-soon">Enquire for availability</span>
+    </div>
+
+    <div class="offering-card">
+      <div class="offering-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="8" y="10" width="24" height="22" rx="1" stroke="#7A8C6E" stroke-width="1.2" fill="rgba(122,140,110,0.1)"/>
+          <path d="M14 18 L26 18M14 23 L22 23" stroke="#6B3F1F" stroke-width="1" stroke-linecap="round"/>
+          <path d="M20 6 L20 10" stroke="#C4714A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Parent Resource Guides</h3>
+      <p>Downloadable guides that bring yoga and mindfulness into your home. Rooted in child development research, written for real parents in real moments.</p>
+      <span class="coming-soon">Coming soon</span>
+    </div>
+
+    <div class="offering-card">
+      <div class="offering-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="16" r="6" stroke="#7A8C6E" stroke-width="1.2" fill="rgba(122,140,110,0.1)"/>
+          <path d="M8 34 Q8 26 20 26 Q32 26 32 34" stroke="#6B3F1F" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <path d="M28 14 Q32 10 34 12" stroke="#C4714A" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>School & Wellness Programs</h3>
+      <p>Partnerships with schools, Montessori programs, and early childhood centers. Bringing developmentally-informed yoga into the places children learn and grow.</p>
+      <span class="coming-soon">Enquire for partnership</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book-section" id="book">
+  <div class="book-cover">
+    <img src="Nurturing_Young_Minds___Bodies.png" alt="Nurturing Young Minds & Bodies book cover">
+  </div>
+  <div class="book-content">
+    <div style="font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;">The Book</div>
+    <h2><em>Nurturing Young Minds & Bodies:</em> A Guide to Yoga for Child Development</h2>
+    <p>
+      Part developmental science, part practical guide, part love letter 
+      to the children who teach us how to be present. This book bridges 
+      what research tells us about child development with what yoga has 
+      always known about the body.
+    </p>
+    <p>
+      Each chapter focuses on a specific stage of childhood, from ages 1 to 3, 
+      4 to 6, 7 to 9, and 10 to 12, so the guidance actually meets your child 
+      where they are right now.
+    </p>
+    <div class="book-badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="7" cy="7" r="6" stroke="#7A8C6E" stroke-width="1"/>
+        <path d="M7 4V7L9 9" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      Coming in 2025. Join the list to be notified first.
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="email-section" id="connect">
+  <div class="email-left">
+    <h2>Start your child's<br><em>rooted practice</em><br>today, for free</h2>
+    <p>
+      Join the Little Roots community and get a free morning yoga 
+      sequence made for children ages 1 to 12, grounded in child 
+      development principles.
+    </p>
+  </div>
+  <div class="email-right">
+    <div class="freebie-label">Free gift when you join</div>
+    <div class="freebie-title">"5 Poses for a Calmer Morning"</div>
+    <div class="freebie-desc">A printable yoga sequence with child development notes for parents, tailored to your child's age group. It takes about 10 minutes and it really does change the whole morning.</div>
+
+    <div id="form-container">
+      <div class="email-form">
+        <input type="text" placeholder="Your first name" id="fname">
+        <input type="email" placeholder="Your email address" id="email">
+        <button onclick="handleSubmit()">Send me the free guide</button>
+      </div>
+      <p class="email-privacy">No spam, ever. Unsubscribe anytime. Your information is safe.</p>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <h3>You're in the roots 🌱</h3>
+      <p>Check your inbox. Your free morning sequence is on its way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Little Roots Yoga</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="https://instagram.com/little_roots_yoga">Instagram</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Emina Toric · littlerootsyoga.com</div>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!name || !email) {
+      alert('Please enter your name and email.');
+      return;
+    }
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    // When ready: connect to Mailchimp or ConvertKit API here
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Fade in sections on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.about, .offerings, .book-section, .email-section').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
