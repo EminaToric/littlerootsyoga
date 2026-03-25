@@ -894,7 +894,7 @@
       </div>
       <div class="cred-divider"></div>
       <div class="cred-item">
-        <span class="cred-number">3+</span>
+        <span class="cred-number">10+</span>
         <span class="cred-label">Years with children</span>
       </div>
     </div>
@@ -928,6 +928,7 @@
     </p>
     <div class="credential-pills">
       <span class="pill">MS Child & Human Development</span>
+      <span class="pill">MS Computer Science</span>
       <span class="pill">RYT Certified</span>
       <span class="pill">Children's Yoga Specialist</span>
     </div>
@@ -1008,7 +1009,7 @@
         <circle cx="7" cy="7" r="6" stroke="#7A8C6E" stroke-width="1"/>
         <path d="M7 4V7L9 9" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round"/>
       </svg>
-      Coming in 2026. Join the list to be notified first.
+      Coming in 2025. Join the list to be notified first.
     </div>
   </div>
 </section>
@@ -1056,16 +1057,49 @@
 </footer>
 
 <script>
-  function handleSubmit() {
+  async function handleSubmit() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('email').value.trim();
+
     if (!name || !email) {
       alert('Please enter your name and email.');
       return;
     }
-    document.getElementById('form-container').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
-    // When ready: connect to Mailchimp or ConvertKit API here
+
+    const btn = document.querySelector('.email-form button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiOGViZDA0Yjk1ZWM2NmUxYzhmNGVkMjY4YjhhOWMzZThiZTlmMWM5NGQ3Njg0MzNlNGQ3NDQ5NGZmNTY3NWUwM2ViYTAyM2NhNzhkOWM0OTciLCJpYXQiOjE3NzQ0NTg3MjMuMDk5OTM5LCJuYmYiOjE3NzQ0NTg3MjMuMDk5OTQxLCJleHAiOjQ5MzAxMzIzMjMuMDkzNTc4LCJzdWIiOiIyMjI0Mjc0Iiwic2NvcGVzIjpbXX0.Z_nsedX1laqne-XPSEJEFK5Fa9J5zdl7n5JZn2rYmwdvIHwKOW5NUrPf41KYmWWAjLweI1zylwcG1BqvUqoYT5Zr_EhMtrlZReQz2nJAhDh82vQqpfWSwk2dO2QsIM62I1zqMD4_a3z2b54ebkeGlq1a8y-xqL4CLLYOonFN5RdaZxeNbBgW73AiA8kNh9C2ing5hEQGtOyAVhDWew16ac3ri6yOknuzb420NoNRa9JW4Ir7azdIzqxEQKiUqVrMgmhF54gtYH8Cfx8eY0DSNiVfiA3yADDJQASOG9xwCojwzgsCG9Y3ERVvo6oGE7bU4jkOGtD1V0wjtK3w34FB-hDPpStgPpxwG6wdLwz-UlGHLr9_AdYhfUO5hWPI0wrb6xP7FIXE17q4tFN21KMFSvL_skSBMZ1lDOJgnXdTPSV75Cm4hCJ1T4MfLVDygcKT0KIXHudCj1nn3atFP_pJi4aJCFA88d2w7uSwwUQ3HQdt3UQNy5hPeCKA3g6pCNWKlwbibhmxEbFbhLB--XFEpwIKCefK5zszzvl_u_t_4SJvyjNB-WLjPcVjz3HvHbzlv4zJCy0c8pSc6d8qsW9sWaZjQHZ7rcLoOHpcVb9GfNFbIHbNvFNXDOGSUnwHWIAta3NZUQiTDM0sPpCIi5TnSS2sIbnPVx7CkMqLuJCEAoY';
+    const GROUP_ID = '182329509222024549';
+
+    try {
+      const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_TOKEN}`
+        },
+        body: JSON.stringify({
+          email: email,
+          fields: { name: name },
+          groups: [GROUP_ID]
+        })
+      });
+
+      if (response.ok || response.status === 200 || response.status === 201) {
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      } else {
+        btn.textContent = 'Send me the free guide';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      btn.textContent = 'Send me the free guide';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
   }
 
   // Smooth scroll
