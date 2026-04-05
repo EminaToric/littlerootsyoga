@@ -97,6 +97,30 @@
 
   .nav-links a:hover { opacity: 1; }
 
+  .nav-book {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid rgba(196, 113, 74, 0.5);
+    color: var(--terracotta);
+    padding: 8px 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-book:hover {
+    background: var(--terracotta);
+    color: var(--cream);
+    border-color: var(--terracotta);
+    opacity: 1;
+  }
+
   /* ---- HERO ---- */
   .hero {
     min-height: 100vh;
@@ -893,6 +917,7 @@
     <li><a href="#book">The Book</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
+  <a href="mailto:emina@littlerootsyoga.com?subject=Booking%20Enquiry%20%E2%80%94%20Little%20Roots%20Yoga&body=Hi%20Emina%2C%0A%0AI%20am%20interested%20in%20booking%20a%20class%20or%20program.%20Here%20are%20a%20few%20details%3A%0A%0AName%3A%20%0AChild%27s%20age%3A%20%0AWhat%20I%20am%20looking%20for%3A%20" class="nav-book">Book a class</a>
 </nav>
 
 <!-- HERO -->
@@ -1016,7 +1041,7 @@
 
   <!-- BOOK NOW BUTTON -->
   <div class="book-now-wrap">
-    <a href="mailto:emina@littlerootsyoga.com?subject=Booking%20Enquiry%20%E2%80%94%20Little%20Roots%20Yoga&body=Hi%20Emina%2C%0A%0AI%20am%20interested%20in%20booking%20a%20class%20or%20program.%20Here%20are%20a%20few%20details%3A%0A%0AName%3A%20%0AChild%27s%20age%3A%20%0AWhat%20I%20am%20looking%20for%3A%20" class="book-now-btn">
+    <a href="/cdn-cgi/l/email-protection#2b4e4642454a6b47425f5f474e5944445f5852444c4a0548444614585e49414e485f166944444042454c0e191b6e455a5e4259520e191b0e6e190e131b0e121f0e191b67425f5f474e0e191b7944445f580e191b72444c4a0d49444f521663420e191b6e4642454a0e19680e1b6a0e1b6a620e191b4a460e191b42455f4e594e585f4e4f0e191b42450e191b4944444042454c0e191b4a0e191b48474a58580e191b44590e191b5b59444c594a46050e191b634e594e0e191b4a594e0e191b4a0e191b4d4e5c0e191b4f4e5f4a4247580e186a0e1b6a0e1b6a654a464e0e186a0e191b0e1b6a684342474f0e191c580e191b4a4c4e0e186a0e191b0e1b6a7c434a5f0e191b620e191b4a460e191b4744444042454c0e191b4d44590e186a0e191b" class="book-now-btn">
       Book a class or program
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#6B3F1F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1050,7 +1075,7 @@
         <circle cx="7" cy="7" r="6" stroke="#7A8C6E" stroke-width="1"/>
         <path d="M7 4V7L9 9" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round"/>
       </svg>
-      Coming in 2026. Join the list to be notified first.
+      Coming in 2025. Join the list to be notified first.
     </div>
   </div>
 </section>
@@ -1097,7 +1122,7 @@
   <div class="footer-copy">© 2025 Emina Toric · littlerootsyoga.com</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   async function handleSubmit() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -1156,18 +1181,4 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.about, .offerings, .book-section, .email-section').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+        entry.targ
