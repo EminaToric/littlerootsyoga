@@ -391,6 +391,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+    margin-bottom: 48px;
   }
 
   .offering-card {
@@ -436,6 +437,49 @@
     color: var(--terracotta);
     border-bottom: 1px solid var(--terracotta);
     padding-bottom: 2px;
+  }
+
+  /* ---- BOOK NOW BUTTON ---- */
+  .book-now-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .book-now-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--brown);
+    border: 1.5px solid rgba(107,63,31,0.35);
+    padding: 16px 48px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+  }
+
+  .book-now-btn:hover {
+    background: var(--terracotta);
+    color: var(--cream);
+    border-color: var(--terracotta);
+    transform: translateY(-1px);
+  }
+
+  .book-now-btn svg {
+    transition: transform 0.2s;
+  }
+
+  .book-now-btn:hover svg path {
+    stroke: var(--cream);
+  }
+
+  .book-now-btn:hover svg {
+    transform: translateX(4px);
   }
 
   /* ---- BOOK ---- */
@@ -786,6 +830,7 @@
     .offerings-grid {
       grid-template-columns: 1fr;
       gap: 2px;
+      margin-bottom: 36px;
     }
 
     .offering-card {
@@ -796,6 +841,10 @@
       flex-direction: column;
       gap: 8px;
       margin-bottom: 40px;
+    }
+
+    .book-now-btn {
+      padding: 14px 32px;
     }
 
     .book-section {
@@ -964,6 +1013,17 @@
     </div>
 
   </div>
+
+  <!-- BOOK NOW BUTTON -->
+  <div class="book-now-wrap">
+    <a href="mailto:emina@littlerootsyoga.com?subject=Booking%20Enquiry%20%E2%80%94%20Little%20Roots%20Yoga&body=Hi%20Emina%2C%0A%0AI%20am%20interested%20in%20booking%20a%20class%20or%20program.%20Here%20are%20a%20few%20details%3A%0A%0AName%3A%20%0AChild%27s%20age%3A%20%0AWhat%20I%20am%20looking%20for%3A%20" class="book-now-btn">
+      Book a class or program
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#6B3F1F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
 </section>
 
 <!-- BOOK -->
